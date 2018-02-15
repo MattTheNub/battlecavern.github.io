@@ -1,0 +1,14 @@
+language: node_js
+node_js: lts/*
+install: yarn
+before_script: npm run build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  target-branch: master
+  on:
+    branch: develop
+branches:
+  except:
+  - master
